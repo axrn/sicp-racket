@@ -1,14 +1,12 @@
 #lang sicp
-(define (proc x y z)
-  (cond ((= (min3 x y z) x)(ss y z))
-        ((= (min3 x y z) y)(ss x z))
-        (else (ss x y))))
+(define (ss_of_max_two x y z)
+  (if (= x (max x y))
+      (ss x (max y z))
+      (ss y (max x z))))
 
-(define (min a b)
-  (if (< a b) a b))
-
-(define (min3 x y z)
-  (min (min x y) (min x z)))
+(define (max a b)
+  (if (> a b) a b))
 
 (define (ss a b)
   (+ (* a a) (* b b)))
+
